@@ -1,5 +1,7 @@
 package catos.obd2;
 
+import catos.obd2.dataaccess.data.DBConnect;
+import catos.obd2.db.DB;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -17,7 +19,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
+        DBConnect db = new DBConnect(this,new DB());
+        
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
